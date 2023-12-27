@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Assignment13.Models.Course>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<p>No of Courses: @ViewBag.CourseCount </p>
+<p>Technologies: @ViewBag.Tech </p>
+<p>Welcome to Our Courses </p>
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Cname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CFee)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tech)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CFee)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tech)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CId })
+        </td>
+    </tr>
+}
+
+</table>
